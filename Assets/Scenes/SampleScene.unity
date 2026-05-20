@@ -435,6 +435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bad Guy
       objectReference: {fileID: 0}
+    - target: {fileID: 8465554979823523451, guid: 0c65acfd0f2ef4d428d31e2300c622e3, type: 3}
+      propertyPath: initialState
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

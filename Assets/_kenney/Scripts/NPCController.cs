@@ -39,14 +39,17 @@ public class NPCController : MonoBehaviour
                 if (basket) basket.SetActive(true);
                 animator.SetBool("isGathering", true);
                 break;
-
+            case AnimationState.BowShot:
+                animator.SetBool("isShooting", true);
+                break;
             default:
                 if (pickAxe) pickAxe.SetActive(false);
                 if (basket) basket.SetActive(false);
                 animator.SetBool("isMoving", false);
                 animator.SetBool("isJumping", false);
                 animator.SetBool("isMining", false); 
-                animator.SetBool("isGathering", false); 
+                animator.SetBool("isGathering", false);
+                animator.SetBool("isShooting", false);
                 break;
         }
     }
