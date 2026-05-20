@@ -9,10 +9,21 @@ public class NPCController : MonoBehaviour
     public GameObject pickAxe;
     public GameObject basket;
 
+    public int hitPoints = 3;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SetState(initialState);
+    }
+    public void Hit(int damage=1)
+    {
+        SetState(AnimationState.GetHit);
+        hitPoints =- damage;
+        if (hitPoints == 0)
+        {
+            SetState(AnimationState.Death);
+        }
     }
 
     public void SetState(AnimationState state)
