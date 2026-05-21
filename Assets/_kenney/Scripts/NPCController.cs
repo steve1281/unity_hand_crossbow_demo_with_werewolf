@@ -20,10 +20,10 @@ public class NPCController : MonoBehaviour
     {
         Debug.Log($"NPCController:: Hit for {damage}");
         SetState(AnimationState.GetHit);
-        hitPoints =- damage;
+        hitPoints = hitPoints - damage;
         if (hitPoints <= 0)
         {
-            Debug.Log($"NPCController:: Hit dead");
+            Debug.Log($"NPCController:: Hit dead: {hitPoints}");
             animator.SetBool("isHit", false);
             animator.StopPlayback();
             animator.Play("Death");
