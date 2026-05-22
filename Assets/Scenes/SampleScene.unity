@@ -418,6 +418,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1717006948288587605, guid: 796cfcb25fd3e8940966018c29bae2c7, type: 3}
   m_PrefabInstance: {fileID: 1146612994}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &496775980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496775975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ad7e425f086804984f8b4d05c1713a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  charCon: {fileID: 496775976}
+  jumpAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  lookAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  theCam: {fileID: 330585545}
+  moveSpeed: 5
+  jumpForce: 10
+  minLookAngle: -80
+  maxLookAngle: 80
+  lookSpeed: 10
 --- !u!1001 &514746392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -754,6 +776,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2062604736769441263, guid: 796cfcb25fd3e8940966018c29bae2c7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 496775976}
+    - targetCorrespondingSourceObject: {fileID: 2062604736769441263, guid: 796cfcb25fd3e8940966018c29bae2c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 496775980}
   m_SourcePrefab: {fileID: 100100000, guid: 796cfcb25fd3e8940966018c29bae2c7, type: 3}
 --- !u!1 &1243155489
 GameObject:
