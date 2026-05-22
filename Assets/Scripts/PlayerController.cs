@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
 
         if (attack.action.WasPressedThisFrame())
         {
+            animator.Play("BowShot"); 
             bolt = Instantiate(boltPrefab, theCam.transform.position, theCam.transform.rotation);
             bolt.tag = "Bolt";
         }
