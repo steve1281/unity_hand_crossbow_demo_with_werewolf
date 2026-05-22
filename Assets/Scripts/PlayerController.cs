@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxLookAngle;
     [SerializeField] private float lookSpeed;
 
+    [Header("Misc")]
+    [SerializeField] private Animator animator;
+
     private float ySpeed;
     private float horiRot;
     private float vertRot;
@@ -62,6 +65,16 @@ public class PlayerController : MonoBehaviour
             {
                 ySpeed = jumpForce;
             }
+        }
+
+        // check before adding gravity
+        if (moveAmount.magnitude > 0.1f)
+        {
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
         }
 
         ySpeed = ySpeed + (Physics.gravity.y * Time.deltaTime);

@@ -601,6 +601,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1717006948288587605, guid: 796cfcb25fd3e8940966018c29bae2c7, type: 3}
   m_PrefabInstance: {fileID: 1146612994}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &496775979 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5320348362536434980, guid: 796cfcb25fd3e8940966018c29bae2c7, type: 3}
+  m_PrefabInstance: {fileID: 1146612994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &496775980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,6 +628,7 @@ MonoBehaviour:
   minLookAngle: -80
   maxLookAngle: 80
   lookSpeed: 10
+  animator: {fileID: 496775979}
 --- !u!1001 &514746392
 PrefabInstance:
   m_ObjectHideFlags: 0
