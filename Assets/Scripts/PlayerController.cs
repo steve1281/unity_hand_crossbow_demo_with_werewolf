@@ -99,4 +99,16 @@ public class PlayerController : MonoBehaviour
 
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the object we collided with is tagged as "Ammo"
+        if (other.CompareTag("Ammo"))
+        {
+            // Add your ammo collection logic here (e.g., playerInventory.AddAmmo(20);)
+            Debug.Log("Collected Ammo Bundle!");
+
+            // Destroy the ammo bundle from the scene
+            Destroy(other.gameObject);
+        }
+    }
 }
