@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,9 +20,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxLookAngle;
     [SerializeField] private float lookSpeed;
 
+    [Header("Weapon info")]
+    [SerializeField] private GameObject boltPrefab;
+    [SerializeField] private Transform boltSpawnPoint;
+    [SerializeField] private InputActionReference attack;
+
+    private GameObject bolt = null;
+
+
     [Header("Misc")]
     [SerializeField] private Animator animator;
-
     private float ySpeed;
     private float horiRot;
     private float vertRot;
@@ -81,6 +89,12 @@ public class PlayerController : MonoBehaviour
 
         moveAmount.y = ySpeed;
         charCon.Move(moveAmount * Time.deltaTime);
+
+        if (attack.action.WasPressedThisFrame())
+        {
+            bolt = Instantiate(boltPrefab, theCam.transform.position, theCam.transform.rotation);
+            bolt.tag = "Bolt";
+        }
 
 
     }
