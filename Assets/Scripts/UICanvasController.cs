@@ -1,12 +1,14 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 
 public class UICanvasController : MonoBehaviour
 {
     [Header("Movement Items")]
     [SerializeField] private TextMeshProUGUI scoreValue;
     [SerializeField] private TextMeshProUGUI ammoValue;
+
+    private int ammoAmount;
+    private int scoreAmount;
 
     public static UICanvasController instance;
 
@@ -17,22 +19,24 @@ public class UICanvasController : MonoBehaviour
             instance = this;
         }
     }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         scoreValue.text = "0";
         ammoValue.text = "0";
         
     }
-
+    private void Update()
+    {
+        scoreValue.text = ammoAmount.ToString();
+        ammoValue.text = ammoAmount.ToString();
+    }
     public void SetScoreValue(int value)
     {
-        scoreValue.text = value.ToString();
+        scoreAmount = value;
     }
 
     public void SetAmmoValue(int value)
     {
-
+        ammoAmount = value;
     }
 }

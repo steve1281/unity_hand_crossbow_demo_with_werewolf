@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Misc")]
     [SerializeField] private Animator animator;
+    [SerializeField] private UICanvasController ui = UICanvasController.instance;
+
     private float ySpeed;
     private float horiRot;
     private float vertRot;
@@ -40,7 +42,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Vector2 lookInput = lookAction.action.ReadValue<Vector2>();
 
         // left/right 
@@ -54,10 +55,8 @@ public class PlayerController : MonoBehaviour
 
 
         Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
-
         Vector3 vertMove = transform.forward * moveInput.y;
         Vector3 horiMove = transform.right * moveInput.x;
-
         Vector3 moveAmount = horiMove + vertMove;
         moveAmount = moveAmount.normalized;
         moveAmount = moveAmount * moveSpeed;
@@ -90,24 +89,19 @@ public class PlayerController : MonoBehaviour
         if (attack.action.WasPressedThisFrame() && ammoCnt>0)
         {
             ammoCnt--;
+            ui.SetAmmoValue(ammoCnt);
             animator.Play("BowShot"); 
             bolt = Instantiate(boltPrefab, theCam.transform.position, theCam.transform.rotation);
             bolt.tag = "Bolt";
         }
-
-
     }
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the object we collided with is tagged as "Ammo"
         if (other.CompareTag("Ammo"))
         {
-            // Add your ammo collection logic here (e.g., playerInventory.AddAmmo(20);)
-            // Debug.Log("Collected Ammo Bundle!");
             ammoCnt += 8;
             if (ammoCnt > maxAmmo) ammoCnt = maxAmmo;
-
-            // Destroy the ammo bundle from the scene
+            ui.SetAmmoValue(ammoCnt);
             Destroy(other.gameObject);
         }
     }

@@ -787,6 +787,7 @@ MonoBehaviour:
   maxAmmo: 10
   ammoCnt: 0
   animator: {fileID: 496775979}
+  ui: {fileID: 255965125}
 --- !u!1001 &514746392
 PrefabInstance:
   m_ObjectHideFlags: 0
