@@ -23,18 +23,16 @@ public class UICanvasController : MonoBehaviour
     {
         scoreValue.text = "0";
         ammoValue.text = "0";
-        
     }
     private void Update()
     {
-        scoreValue.text = ammoAmount.ToString();
+        scoreValue.text = scoreAmount.ToString();
         ammoValue.text = ammoAmount.ToString();
     }
     public void SetScoreValue(int value)
     {
         scoreAmount = value;
     }
-
     public void SetAmmoValue(int value)
     {
         ammoAmount = value;

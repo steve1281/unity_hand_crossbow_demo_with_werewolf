@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxAmmo = 10;
     [SerializeField] private int ammoCnt = 0;
 
+
     [Header("Misc")]
     [SerializeField] private Animator animator;
     [SerializeField] private UICanvasController ui = UICanvasController.instance;

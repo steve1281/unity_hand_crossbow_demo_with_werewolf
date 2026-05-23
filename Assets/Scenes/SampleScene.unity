@@ -1059,6 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f94b7f7f23fc5842b1f32f923ffa09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  ui: {fileID: 0}
 --- !u!4 &576718013
 Transform:
   m_ObjectHideFlags: 0
@@ -2066,10 +2067,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 255965124}
   - {fileID: 514746392}
   - {fileID: 1243155493}
   - {fileID: 576718013}
   - {fileID: 990461536}
   - {fileID: 1146612994}
-  - {fileID: 255965124}
   - {fileID: 1143220822}

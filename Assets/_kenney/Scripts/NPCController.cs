@@ -10,7 +10,7 @@ public class NPCController : MonoBehaviour
     public GameObject basket;
 
     public int hitPoints = 3;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +26,7 @@ public class NPCController : MonoBehaviour
             animator.SetBool("isHit", false);
             animator.StopPlayback();
             animator.Play("Death");
+            UICanvasController.instance.SetScoreValue(1);
         }
     }
 
