@@ -54,7 +54,6 @@ public class RaycastProjectile : MonoBehaviour
         // Snap bolt to the hit point
         transform.position = hit.point;
 
-        Debug.Log($"Hit {hit.collider.name}!");
         NPCController npc = hit.transform.GetComponent<NPCController>();
         if (npc != null)
         {
@@ -69,8 +68,7 @@ public class RaycastProjectile : MonoBehaviour
     }
     private void OnDestroy()
     {
-
-        Debug.Log($"Bolt {name} destroyed!");
+        //Debug.Log($"Bolt {name} destroyed!");
     }
 
 }

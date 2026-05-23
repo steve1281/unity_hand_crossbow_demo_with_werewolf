@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class PlayerController : MonoBehaviour
 
     private GameObject bolt = null;
 
+
+    [Header("Ammo info")]
+    [SerializeField] private int maxAmmo = 10;
+    [SerializeField] private int ammoCnt = 0;
 
     [Header("Misc")]
     [SerializeField] private Animator animator;
@@ -90,8 +95,9 @@ public class PlayerController : MonoBehaviour
         moveAmount.y = ySpeed;
         charCon.Move(moveAmount * Time.deltaTime);
 
-        if (attack.action.WasPressedThisFrame())
+        if (attack.action.WasPressedThisFrame() && ammoCnt>0)
         {
+            ammoCnt--;
             animator.Play("BowShot"); 
             bolt = Instantiate(boltPrefab, theCam.transform.position, theCam.transform.rotation);
             bolt.tag = "Bolt";
@@ -105,7 +111,9 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Ammo"))
         {
             // Add your ammo collection logic here (e.g., playerInventory.AddAmmo(20);)
-            Debug.Log("Collected Ammo Bundle!");
+            // Debug.Log("Collected Ammo Bundle!");
+            ammoCnt += 8;
+            if (ammoCnt > maxAmmo) ammoCnt = maxAmmo;
 
             // Destroy the ammo bundle from the scene
             Destroy(other.gameObject);
