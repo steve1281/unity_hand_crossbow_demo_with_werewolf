@@ -31,7 +31,7 @@ public class UICanvasController : MonoBehaviour
     }
     public void SetScoreValue(int value)
     {
-        scoreAmount = value;
+        scoreAmount += value;
     }
     public void SetAmmoValue(int value)
     {
