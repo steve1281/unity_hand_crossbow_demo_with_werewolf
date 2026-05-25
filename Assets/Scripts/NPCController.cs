@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class NPCController : MonoBehaviour
@@ -14,6 +15,11 @@ public class NPCController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        var target = GetComponentsInChildren<Transform>(true)
+                   .FirstOrDefault(t => t.name == "Tool")?.gameObject;
+        animator.GetBehaviour<BowShot>().model = target;
+
         SetState(initialState);
     }
     public void Hit(int damage=1)
@@ -60,6 +66,9 @@ public class NPCController : MonoBehaviour
             case AnimationState.GetHit:
                 animator.SetBool("isHit", true);
                 break;
+            case AnimationState.PlantingTree:
+                animator.SetBool("isPlantingTree", true);
+                break;
             default:
                 if (pickAxe) pickAxe.SetActive(false);
                 if (basket) basket.SetActive(false);
@@ -69,6 +78,7 @@ public class NPCController : MonoBehaviour
                 animator.SetBool("isGathering", false);
                 animator.SetBool("isShooting", false);
                 animator.SetBool("isHit", false); 
+                animator.SetBool("isPlantingTree", false); 
                 break;
         }
     }
@@ -82,6 +92,6 @@ public class NPCController : MonoBehaviour
         Jumps, JumpWhileRunning, RollBackward, RollForward,
         RollLeft, RollRight, RunBackward, RunBackwardLeft,
         RunBackwardRight, RunForward, RunLeft, RunRight,
-        Sprint, StrafeLeft, StrafeRight
+        Sprint, StrafeLeft, StrafeRight,PlantingTree
     }
 }
