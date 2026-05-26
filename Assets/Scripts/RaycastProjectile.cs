@@ -59,7 +59,11 @@ public class RaycastProjectile : MonoBehaviour
         {
             npc.Hit();
         }
-
+        WolfController wolf = hit.transform.GetComponent<WolfController>();
+        if (wolf != null)
+        {
+            wolf.Hit();
+        }
         // Example: Parent to the hit object so it sticks
         transform.SetParent(hit.transform);
 
