@@ -541,13 +541,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1681758180}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -961,6 +961,8 @@ MonoBehaviour:
   wereWolfSpawnPoint: {fileID: 2048661074}
   wolfPrefab: {fileID: 3586977376984207905, guid: 122bfda40cba92540aad85122bf53426, type: 3}
   wolfSpawnPoint: {fileID: 2131055983}
+  cloudPrefab: {fileID: 6370646574874441689, guid: 8ee469aec33ef9f4c9acb127719fae8e, type: 3}
+  effectDuration: 1.5
 --- !u!4 &576718013
 Transform:
   m_ObjectHideFlags: 0

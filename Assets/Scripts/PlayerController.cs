@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Cursor.lockState != CursorLockMode.Locked) return;
+
         Vector2 lookInput = lookAction.action.ReadValue<Vector2>();
 
         // left/right 
