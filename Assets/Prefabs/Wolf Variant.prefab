@@ -112,4 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WolfController
   hitPoints: 3
   animator: {fileID: 3586977376976933511}
-  initialState: 9
+  initialState: 5
