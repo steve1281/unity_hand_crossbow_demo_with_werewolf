@@ -28,12 +28,15 @@ public class NPCController : MonoBehaviour
         hitPoints = hitPoints - damage;
         if (hitPoints <= 0)
         {
-            //Debug.Log($"NPCController:: Hit dead: {hitPoints}");
-            animator.SetBool("isHit", false);
-            animator.StopPlayback();
-            animator.Play("Death");
+            Die();
             UICanvasController.instance.SetScoreValue(1);
         }
+    }
+    public void Die()
+    {
+        animator.SetBool("isHit", false);
+        animator.StopPlayback();
+        animator.Play("Death");
     }
 
     public void SetState(AnimationState state)
