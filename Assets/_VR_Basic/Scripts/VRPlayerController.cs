@@ -1,3 +1,4 @@
+using GLTFast.Schema;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,6 +30,10 @@ public class VRPlayerController : MonoBehaviour
     [SerializeField] private int maxAmmo = 10;
     [SerializeField] private int ammoCnt = 0;
 
+    [Header("Weapon info")]
+    [SerializeField] private GameObject boltPrefab;
+    [SerializeField] private Transform boltOrigin;
+    private GameObject bolt = null;
 
 
     private void OnEnable()
@@ -107,6 +112,14 @@ public class VRPlayerController : MonoBehaviour
     }
     private void OnLeftTriggerPressed(InputAction.CallbackContext context)
     {
+        if (ammoCnt > 0)
+        {
+            ammoCnt--;
+            ui.SetAmmoValue(ammoCnt);
+            bolt = Instantiate(boltPrefab, boltOrigin.position, boltOrigin.rotation);
+            bolt.tag = "Bolt";
+        }
+
         Debug.Log("Left Trigger Pressed!");
     }
     private void OnLeftGripPressed(InputAction.CallbackContext context)
