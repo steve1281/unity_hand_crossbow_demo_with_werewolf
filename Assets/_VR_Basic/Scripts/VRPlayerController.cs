@@ -3,34 +3,33 @@ using UnityEngine.InputSystem;
 
 public class VRPlayerController : MonoBehaviour
 {
-    [Header("Right Controller Actions")]
+    [Header("Controller Actions")]
     [Tooltip("Link to the 'XRI RightHand/PrimaryButton' action")]
     public InputActionReference rightPrimaryButton; // A button
-
     [Tooltip("Link to the 'XRI RightHand/SecondaryButton' action")]
     public InputActionReference rightSecondaryButton; // B button
-
-    [Header("Left Controller Actions")]
     [Tooltip("Link to the 'XRI LeftHand/PrimaryButton' action")]
     public InputActionReference leftPrimaryButton; // X button
-
     [Tooltip("Link to the 'XRI LeftHand/SecondaryButton' action")]
     public InputActionReference leftSecondaryButton; // Y button
-    
     [Tooltip("Link to the 'XRI RightHand/Trigger' action")]
     public InputActionReference rightTrigger; // Trigger
-
     [Tooltip("Link to the 'XRI LeftHand/Trigger' action")]
     public InputActionReference leftTrigger; // Trigger
-
     [Tooltip("Link to the 'XRI RightHand/Grip' action")]
     public InputActionReference rightGrip; // Grip
-
     [Tooltip("Link to the 'XRI LeftHand/Grip' action")]
     public InputActionReference leftGrip; // Grip
 
     [Header("UI Panels")]
     public GameObject VR_UI;
+    [SerializeField] private UICanvasController ui = UICanvasController.instance;
+
+    [Header("Ammo info")]
+    [SerializeField] private int maxAmmo = 10;
+    [SerializeField] private int ammoCnt = 0;
+
+
 
     private void OnEnable()
     {
@@ -118,6 +117,15 @@ public class VRPlayerController : MonoBehaviour
     {
         Debug.Log("Right Grip Pressed!");
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ammo"))
+        {
+            ammoCnt += 8;
+            if (ammoCnt > maxAmmo) ammoCnt = maxAmmo;
+            ui.SetAmmoValue(ammoCnt);
+            Destroy(other.gameObject);
+        }
+    }
 
 }
