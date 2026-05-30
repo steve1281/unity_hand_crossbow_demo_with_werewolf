@@ -2,9 +2,15 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR.Management;
 
 public class GameManager : MonoBehaviour
 {
+
+    [Header("Player options")]
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject vr_player;
+
     [Header("BadGuy info")]
     [SerializeField] private GameObject badGuyPrefab;
     [SerializeField] private Transform badGuySpawnPoint;
@@ -21,6 +27,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject cloudPrefab;
     [SerializeField] private float effectDuration = 1.5f;
 
+    private void Awake()
+    {
+        if (CheckVR())
+        {
+            // VR is present, and our default, no changes
+            vr_player.SetActive(true);
+            player.SetActive(false);
+            Debug.Log("GameManager::Awake VR detected.");
+        } else
+        {
+            // VR is not present; need to make changes
+            vr_player.SetActive(false);
+            player.SetActive(true);
+            Debug.Log("GameManager::Awake VR Not detected.");
+        }
+    }
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -47,5 +69,15 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(effectDuration - 0.2f);
         _ = Instantiate(wolfPrefab, wolfSpawnPoint.position, wolfSpawnPoint.rotation);
         Destroy(temp);
+    }
+
+    private bool CheckVR()
+    {
+        if (XRGeneralSettings.Instance == null
+           || XRGeneralSettings.Instance.Manager.activeLoader == null)
+        {
+            return false;
+        }
+        return true;
     }
 }
