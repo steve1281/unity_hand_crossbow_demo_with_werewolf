@@ -717,9 +717,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 255965120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 871d1559b8704624d915c18ec62a4eb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 73a88688578371d43a21e8d1ad1ce81d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UICanvasController
+  m_EditorClassIdentifier: Assembly-CSharp::VRUICanvasController
   scoreValue: {fileID: 1230526954}
   ammoValue: {fileID: 196473855}
 --- !u!1 &330585543
@@ -1798,7 +1798,7 @@ PrefabInstance:
     - target: {fileID: 2326318419098403822, guid: 556256e0d8e91074d87ec30924303044, type: 3}
       propertyPath: ui
       value: 
-      objectReference: {fileID: 255965125}
+      objectReference: {fileID: 0}
     - target: {fileID: 2326318419098403822, guid: 556256e0d8e91074d87ec30924303044, type: 3}
       propertyPath: ammoCnt
       value: 99
