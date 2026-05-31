@@ -44,7 +44,7 @@ public class NPCDeath : StateMachineBehaviour
             .ToList();
         foreach (GameObject b in bolts)
         {
-            if (b) Destroy(b); // if the bolt is schduled to be detroyed; let it.
+            Destroy(b); 
         }
 
         // remove the corpse, after 5 seconds
