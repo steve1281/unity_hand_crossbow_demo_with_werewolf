@@ -34,12 +34,14 @@ public class GameManager : MonoBehaviour
             // VR is present, and our default, no changes
             vr_player.SetActive(true);
             player.SetActive(false);
+            vr_player.transform.Find("Camera Offset").Find("Main Camera").GetComponent<AudioListener>().enabled = true;
             Debug.Log("GameManager::Awake VR detected.");
         } else
         {
             // VR is not present; need to make changes
             vr_player.SetActive(false);
             player.SetActive(true);
+            player.transform.Find("Camera Offset").Find("Main Camera").GetComponent<AudioListener>().enabled = true;
             Debug.Log("GameManager::Awake VR Not detected.");
         }
     }

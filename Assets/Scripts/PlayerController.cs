@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -40,6 +41,12 @@ public class PlayerController : MonoBehaviour
     private float horiRot;
     private float vertRot;
 
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -92,7 +99,8 @@ public class PlayerController : MonoBehaviour
         {
             ammoCnt--;
             ui.SetAmmoValue(ammoCnt);
-            animator.Play("BowShot"); 
+            animator.Play("BowShot");
+            audioSource.Play();
             bolt = Instantiate(boltPrefab, theCam.transform.position, theCam.transform.rotation);
             bolt.tag = "Bolt";
         }

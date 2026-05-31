@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class RaycastProjectile : MonoBehaviour
@@ -33,7 +34,7 @@ public class RaycastProjectile : MonoBehaviour
         // This prevents "tunnelling" through thin walls at high speeds
         if (Physics.Raycast(lastPosition, stepDirection, out RaycastHit hit, stepMagnitude, hitLayers))
         {
-            OnHit(hit);
+            if (this != null) OnHit(hit);
         }
         else
         {
@@ -49,7 +50,10 @@ public class RaycastProjectile : MonoBehaviour
 
     void OnHit(RaycastHit hit)
     {
-        Destroy(gameObject, hitLifetime);
+
+        RemoveBolt();
+
+       // Destroy(gameObject, hitLifetime);
 
         // Snap bolt to the hit point
         transform.position = hit.point;
@@ -70,6 +74,12 @@ public class RaycastProjectile : MonoBehaviour
         // Disable this script so it stops moving
         this.enabled = false;
     }
+
+    public void RemoveBolt()
+    {
+        Destroy(gameObject, hitLifetime);
+    }
+
     private void OnDestroy()
     {
         //Debug.Log($"Bolt {name} destroyed!");

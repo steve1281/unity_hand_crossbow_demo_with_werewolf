@@ -2338,6 +2338,11 @@ MonoBehaviour:
   rightGrip: {fileID: -4458875536838960974, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   leftGrip: {fileID: 8385786377962373389, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   VR_UI: {fileID: 4994889547383874975}
+  ui: {fileID: 0}
+  maxAmmo: 10
+  ammoCnt: 0
+  boltPrefab: {fileID: 0}
+  boltOrigin: {fileID: 0}
 --- !u!1 &8717448104110058784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,8 +2801,17 @@ LineRenderer:
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4

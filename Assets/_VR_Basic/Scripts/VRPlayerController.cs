@@ -35,6 +35,13 @@ public class VRPlayerController : MonoBehaviour
     [SerializeField] private Transform boltOrigin;
     private GameObject bolt = null;
 
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
 
     private void OnEnable()
     {
@@ -115,6 +122,7 @@ public class VRPlayerController : MonoBehaviour
         if (ammoCnt > 0)
         {
             ammoCnt--;
+            audioSource.Play();   
             ui.SetAmmoValue(ammoCnt);
             bolt = Instantiate(boltPrefab, boltOrigin.position, boltOrigin.rotation);
             bolt.tag = "Bolt";
